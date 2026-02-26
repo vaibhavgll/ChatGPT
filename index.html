@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SourceBin Style Notepad</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <h1>SourceBin Lite</h1>
+      <p class="tagline">Modern multi-file paste workspace</p>
+      <div class="panel">
+        <label for="binTitle">Bin title</label>
+        <input id="binTitle" type="text" value="Untitled Bin" />
+
+        <label for="visibility">Visibility</label>
+        <select id="visibility">
+          <option value="public">Public</option>
+          <option value="unlisted">Unlisted</option>
+          <option value="private">Private</option>
+        </select>
+
+        <label for="expiration">Expiration</label>
+        <select id="expiration">
+          <option value="never">Never</option>
+          <option value="1d">1 day</option>
+          <option value="7d">7 days</option>
+          <option value="30d">30 days</option>
+        </select>
+      </div>
+
+      <div class="panel">
+        <h2>Bin actions</h2>
+        <div class="grid-actions">
+          <button id="newBinBtn">New Bin</button>
+          <button id="saveBinBtn">Save Bin</button>
+          <button id="duplicateBinBtn">Duplicate</button>
+          <button id="deleteBinBtn" class="danger">Delete</button>
+          <button id="exportJsonBtn">Export JSON</button>
+          <label for="importJson" class="button-like">Import JSON</label>
+          <input id="importJson" type="file" accept="application/json" hidden />
+          <button id="copyLinkBtn">Copy Share Link</button>
+          <button id="downloadZipBtn">Download Files</button>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>Saved bins</h2>
+        <input id="searchBins" type="text" placeholder="Search bins..." />
+        <ul id="savedBinsList"></ul>
+      </div>
+    </aside>
+
+    <main class="editor-shell">
+      <header class="editor-toolbar">
+        <div class="left-controls">
+          <button id="addFileBtn">+ Add File</button>
+          <button id="removeFileBtn">- Remove File</button>
+        </div>
+        <div class="right-controls">
+          <span id="status">Ready</span>
+          <span id="counts">0 chars • 0 lines</span>
+        </div>
+      </header>
+
+      <section id="tabs" class="tabs"></section>
+
+      <section class="file-meta">
+        <input id="fileName" type="text" value="index.js" />
+        <select id="language"></select>
+      </section>
+
+      <textarea id="editor" spellcheck="false" placeholder="Paste or type your code here..."></textarea>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
